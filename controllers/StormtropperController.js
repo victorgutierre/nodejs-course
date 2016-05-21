@@ -39,7 +39,7 @@ let StormtropperController = {
 
 	update: function(request, response, next) {
 		let query = {
-			_id: request.params.id;
+			_id: request.params.id
 		};
 		let body = request.body;
 
@@ -53,7 +53,7 @@ let StormtropperController = {
 
 	delete: function(request, response, next) {
 		let query = {
-			_id: request.params.id;
+			_id: request.params.id
 		};
 
 		StormtropperModel.delete(query, function(err, data){
