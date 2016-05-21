@@ -33,3 +33,15 @@ As variáveis em controllers tem escopo local, para deixar global usar o
 module.exports = nomeVar;
 
 _____________________________________________________________
+
+
+curl -X POST -D '{"name" : "Victor"}' -H 'Content-Type/aplication-json' http://localhost:3000
+
+_______________________________________________________________
+
+Sequencia do app.js
+- Dependencias
+- Middleware
+- Rotas
+- Erros
+- Listen (module.exports)

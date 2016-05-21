@@ -16,7 +16,11 @@ let MainController = {
 		response.send(json);
 	},
 	create: function(request, response, next) {
-		response.send('Create blahhhh')
+		let body = request.body;
+
+		console.log('name', body.name);
+		
+		response.send('Create blahhhh');
 	}
 };
 
