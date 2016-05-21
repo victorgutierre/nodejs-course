@@ -13,13 +13,13 @@ let StormtropperModel = {
 		db.collection('stormtroppers').findOne(query, callback);
 	},
 	create: function(data, callback) {
-		
+		db.collection('stormtroppers').insert(data, callback);
 	},
 	update: function(data, query, callback) {
 
 	},
 	delete: function(query, callback) {
-
+	
 	}
 };
 
