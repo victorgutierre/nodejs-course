@@ -5,12 +5,31 @@ HTTP - REST
 - delete
 - patch
 
+STATUS CODE
+- 200 : ok
+- 201 : created
+- 404 : not found
+ex: response.status(404)
+
 Request  = Pedido
 Response = Manda de volta
 
 // trocar get por uma das palavras acima   
+app.use(function(request, response, next) {
+	console.log('middleware');
+	next();
+})
+
 app.get('/', function(request, response, next) {
-	response.send('blah');
+	response.send('Blah');
 });
+
+// Sobe o servidor
+app.listen(3000);
+_____________________________________________________________
+
+As variáveis em controllers tem escopo local, para deixar global usar o 
+
+module.exports = nomeVar;
 
 _____________________________________________________________
