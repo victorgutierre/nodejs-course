@@ -45,3 +45,8 @@ Sequencia do app.js
 - Rotas
 - Erros
 - Listen (module.exports)
+
+_______________________________________________________________
+
+Nodemon instalar globalmente (não fica no package.json)
+- sudo npm install -g nodemon

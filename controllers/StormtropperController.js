@@ -5,7 +5,7 @@ let StormtropperController = {
 
 	},
 	list: function(request, response, next) {
-
+		response.send('blah');
 	},
 	getById: function(request, response, next) {
 
