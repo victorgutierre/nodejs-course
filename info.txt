@@ -9,7 +9,10 @@ STATUS CODE
 - 200 : ok
 - 201 : created
 - 404 : not found
+- 500 : Internal server error
 ex: response.status(404)
+
+https://http.cat/
 
 Request  = Pedido
 Response = Manda de volta
@@ -50,3 +53,43 @@ _______________________________________________________________
 
 Nodemon instalar globalmente (não fica no package.json)
 - sudo npm install -g nodemon
+
+_______________________________________________________________
+
+Param = Parametro - (ex: id)
+query = query string - (ex: ?foo = bar)
+
+_______________________________________________________________
+
+MONGODB
+
+criar novo db: use nome_da_db
+
+mostrar db que vc está: db
+
+mostar collections: show collections
+
+criar nova collection - ex: db.stormtroppers.insert({name: 'CT-555', alias: 'Fives'})
+
+find: db.stormtroppers.find()
+
+identar: db.stormtroppers.find().pretty()
+
+crud
+
+create: 
+read: 
+update: db.stormtroppers.update({ quem voce quer atualizar }, { e os campos })
+delete: db.stormtroppers.remove({ _id: }) || db.stormtroppers.remove({ alias: {$exists: 1} })
+
+
+_______________________________________________________________
+
+Expressao regular sempre comeca e acaba com // - ex: /aaa/
+
+Começa com = ^
+Acaba com  = $
+\w = 
+\d = 
+/g = globalmente - ex: 'aaabbaa'.replace(/a/g, ''); // retorna 'bb'
+
