@@ -1,11 +1,15 @@
 'use strict';
 
+let StormtropperModel = require('../models/StormtropperModel');
+
 let StormtropperController = {
 	create: function(request, response, next) {
 
 	},
 	list: function(request, response, next) {
-		response.send('blah');
+		StormtropperModel.query({}, function(err, data) {
+			response.json(data)
+		});
 	},
 	getById: function(request, response, next) {
 		let params = request.params;

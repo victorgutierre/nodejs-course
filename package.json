@@ -19,6 +19,7 @@
   "homepage": "https://github.com/victorgutierre/nodejs-course#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mongojs": "^2.4.0"
   }
 }
