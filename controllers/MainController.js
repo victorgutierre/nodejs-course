@@ -6,20 +6,12 @@ let MainController = {
 		next();
 	},
 	home: function(request, response, next) {
-		let json = {
-			name: 'Victor',
-			age: 19,
-			workAt: 'Beleza Na Web',
-			description: 'Front end Developer'
-		};
-		response.status(404);
-		response.send(json);
+		response.sendFile(process.env.PWD + '/index.html');
 	},
 	create: function(request, response, next) {
 		let body = request.body;
 
 		console.log('name', body.name);
-		
 		response.send('Create blahhhh');
 	}
 };
