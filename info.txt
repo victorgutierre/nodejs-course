@@ -1,0 +1,16 @@
+HTTP - REST
+- get
+- post
+- put
+- delete
+- patch
+
+Request  = Pedido
+Response = Manda de volta
+
+// trocar get por uma das palavras acima   
+app.get('/', function(request, response, next) {
+	response.send('blah');
+});
+
+_____________________________________________________________

@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-course",
+  "version": "0.0.1",
+  "description": "NodeJS Course stuff",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorgutierre/nodejs-course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorgutierre/nodejs-course/issues"
+  },
+  "homepage": "https://github.com/victorgutierre/nodejs-course#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
