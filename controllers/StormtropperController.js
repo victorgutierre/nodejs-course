@@ -15,7 +15,7 @@ let StormtropperController = {
 		});
 	},
 	getById: function(request, response, next) {
-		StormtropperModel.query({_id : request.params.id }, function(err, data) {
+		StormtropperModel.findOne({_id : request.params.id }, function(err, data) {
 			if(err) {
 				return response.status(500).json({ err: 'não consegui pegar por id'});
 			}
