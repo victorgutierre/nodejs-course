@@ -8,6 +8,9 @@ let StormtropperController = {
 	},
 	list: function(request, response, next) {
 		StormtropperModel.query({}, function(err, data) {
+			if(err) {
+				return response.status(500).json({ err: 'deu ruim'});
+			}
 			response.json(data)
 		});
 	},
