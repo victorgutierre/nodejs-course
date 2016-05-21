@@ -8,4 +8,6 @@ router.use('/', MainController.middleware);
 router.get('/', MainController.home);
 router.post('/', MainController.create);
 
+router.use('/api', require('./api'));
+
 module.exports = router;
