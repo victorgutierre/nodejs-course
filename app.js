@@ -6,5 +6,4 @@ let app 		= express();
 
 app.use('/', require('./routes'));
 
-// Sobe o servidor
-app.listen(3000);
+module.exports = app;
