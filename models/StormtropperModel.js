@@ -1,17 +1,17 @@
 'use strict';
 
 let StormtropperModel = {
-	query: function() {
+	query: function(query, callback) {
 
 	},
-	create: function() {
+	create: function(data, callback) {
 
 	},
-	update: function() {
+	update: function(data, query, callback) {
 
 	},
-	delete: function() {
-		
+	delete: function(query, callback) {
+
 	}
 };
 
