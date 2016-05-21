@@ -25,8 +25,8 @@ let StormtropperModel = {
 		if(query._id) {
 			query._id = db.ObjectId(query._id);
 		}
-		
-		db.collection('stormtroppers').delete(query, callback);
+
+		db.collection('stormtroppers').remove(query, callback);
 	}
 };
 
