@@ -15,9 +15,12 @@ let StormtropperController = {
 		});
 	},
 	getById: function(request, response, next) {
-		let params = request.params;
-		let query  = request.query;
-		response.json({ params: params , query: query})
+		StormtropperModel.query({_id : request.params.id }, function(err, data) {
+			if(err) {
+				return response.status(500).json({ err: 'não consegui pegar por id'});
+			}
+			response.json(data)
+		})
 	},
 	update: function(request, response, next) {
 
