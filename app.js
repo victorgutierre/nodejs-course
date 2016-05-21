@@ -16,7 +16,7 @@ app.use(function(request, response, next) {
 
 app.use(function(err, request, response, next) {
 	console.log('Erro! ->', err);
-	response.status(500);
+	response.status(err.status || 500);
 	response.send('Deu ruim...');
 })
 

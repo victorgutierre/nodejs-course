@@ -22,7 +22,7 @@ let StormtropperController = {
 
 		StormtropperModel.query(query, function(err, data) {
 			if(err) {
-				return response.status(500).json({ err: 'deu ruim'});
+				return next(err);
 			}
 			response.json(data)
 		});
@@ -31,7 +31,7 @@ let StormtropperController = {
 	getById: function(request, response, next) {
 		StormtropperModel.findOne({_id : request.params.id }, function(err, data) {
 			if(err) {
-				return response.status(500).json({ err: 'não consegui pegar por id'});
+				return next(err);
 			}
 			response.json(data)
 		})
@@ -45,7 +45,7 @@ let StormtropperController = {
 
 		StormtropperModel.update(query, body, function(err, data) {
 			if(err) {
-				return response.status(500).json({ err: 'não consegui atualizar'});
+				return next(err);
 			}
 			response.json(data);
 		})
