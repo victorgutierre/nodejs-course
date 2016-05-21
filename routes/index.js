@@ -1,7 +1,7 @@
 'use strict';
 
 let router = require('express').Router();
-let MainController = require('../controllers/MainController')
+let MainController = require('../controllers/MainController');
 
 // Chama os objetos do MainController
 router.use('/', MainController.middleware);

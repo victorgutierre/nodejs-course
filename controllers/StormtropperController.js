@@ -60,7 +60,7 @@ let StormtropperController = {
 				return next(err);
 			}
 			response.json(data);
-		})
+		});
 	},
 
 	delete: function(request, response, next) {
@@ -69,7 +69,7 @@ let StormtropperController = {
 		};
 
 		StormtropperModel.delete(query, function(err, data){
-			response.status(204).json(data)
+			response.status(204).json(data);
 		});
 	}
 };

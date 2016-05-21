@@ -18,6 +18,6 @@ app.use(function(err, request, response, next) {
 	console.log('Erro! ->', err);
 	response.status(err.status || 500);
 	response.send('Deu ruim...');
-})
+});
 
 module.exports = app;
