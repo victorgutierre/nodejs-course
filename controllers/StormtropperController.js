@@ -8,7 +8,9 @@ let StormtropperController = {
 		response.send('blah');
 	},
 	getById: function(request, response, next) {
-
+		let params = request.params;
+		let query  = request.query;
+		response.json({ params: params , query: query})
 	},
 	update: function(request, response, next) {
 
