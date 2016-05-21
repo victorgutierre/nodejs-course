@@ -22,7 +22,11 @@ let StormtropperModel = {
 		db.collection('stormtroppers').update(query, {$set: data}, callback);
 	},
 	delete: function(query, callback) {
-		db.collection('stormtroppers').delete(data, callback);
+		if(query._id) {
+			query._id = db.ObjectId(query._id);
+		}
+		
+		db.collection('stormtroppers').delete(query, callback);
 	}
 };
 

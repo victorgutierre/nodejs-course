@@ -7,7 +7,7 @@ let StormtropperController = {
 		let body = request.body;
 		StormtropperModel.create(body, function(err, data) {
 			if(err) {
-				return response.status(500).json({ err: 'deu ruim'});
+				return response.status(201).json({ err: 'deu ruim'});
 			}
 			response.json(data);
 		});
@@ -52,7 +52,13 @@ let StormtropperController = {
 	},
 
 	delete: function(request, response, next) {
-		StormtropperModel.delete()
+		let query = {
+			_id: request.params.id;
+		};
+
+		StormtropperModel.delete(query, function(err, data){
+			response.status(204).json(data)
+		});
 	}
 };
 
