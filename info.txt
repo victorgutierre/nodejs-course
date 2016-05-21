@@ -93,3 +93,11 @@ Acaba com  = $
 \d = 
 /g = globalmente - ex: 'aaabbaa'.replace(/a/g, ''); // retorna 'bb'
 
+_______________________________________________________________
+
+^ trava versão
+^3.4.0
+
+3 = major
+4 = minor
+0 = patch

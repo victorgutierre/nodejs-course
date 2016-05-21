@@ -1,16 +1,17 @@
 'use strict';
 
-let StormtropperModel = require('../models/StormtropperModel');
+let bluebird = require('bluebird');
+let StormtropperModel = bluebird.promisifyAll(require('../models/StormtropperModel'));
 
 let StormtropperController = {
 	create: function(request, response, next) {
 		let body = request.body;
-		StormtropperModel.create(body, function(err, data) {
-			if(err) {
-				return response.status(201).json({ err: 'deu ruim'});
-			}
-			response.json(data);
-		});
+
+		StormtropperModel.createAsync(body)
+			.then(function(data) {
+				response.status(201).json(data);
+			})
+			.catch(next);
 	},
 
 	list: function(request, response, next) {
@@ -20,12 +21,11 @@ let StormtropperController = {
 			query.name = RegExp(request.query.name);
 		}
 
-		StormtropperModel.query(query, function(err, data) {
-			if(err) {
-				return next(err);
-			}
-			response.json(data)
-		});
+		StormtropperModel.queryAsync(query)
+			.then(function(data) {
+				response.json(data);
+			})
+			.catch(next);
 	},
 
 	getById: function(request, response, next) {
