@@ -15,11 +15,14 @@ let StormtropperModel = {
 	create: function(data, callback) {
 		db.collection('stormtroppers').insert(data, callback);
 	},
-	update: function(data, query, callback) {
-
+	update: function(query, data, callback) {
+		if(query._id) {
+			query._id = db.ObjectId(query._id);
+		}
+		db.collection('stormtroppers').update(query, {$set: data}, callback);
 	},
 	delete: function(query, callback) {
-	
+		db.collection('stormtroppers').delete(data, callback);
 	}
 };
 

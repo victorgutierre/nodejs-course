@@ -38,11 +38,21 @@ let StormtropperController = {
 	},
 
 	update: function(request, response, next) {
+		let query = {
+			_id: request.params.id;
+		};
+		let body = request.body;
 
+		StormtropperModel.update(query, body, function(err, data) {
+			if(err) {
+				return response.status(500).json({ err: 'não consegui atualizar'});
+			}
+			response.json(data);
+		})
 	},
 
 	delete: function(request, response, next) {
-
+		StormtropperModel.delete()
 	}
 };
 
