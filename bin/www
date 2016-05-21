@@ -1,8 +1,9 @@
 'use strict';
 
+let debug = require('debug')('curso_node:bin:www');
 let app = require('../app')
 
 // Sobe o servidor
 app.listen(3000, function(){
-	console.log('server is up');
+	debug('server is up');
 });
