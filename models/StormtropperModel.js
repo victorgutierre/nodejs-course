@@ -13,20 +13,17 @@ let StormtropperModel = {
 		// db.collection('stormtroppers').findOne(query, callback);
 	},
 	create: function(data, callback) {
-		db.collection('stormtroppers').insert(data, callback);
+		let obj = new schema(data);
+		obj.save(callback);
+		// db.collection('stormtroppers').insert(data, callback);
 	},
 	update: function(query, data, callback) {
-		if(query._id) {
-			query._id = db.ObjectId(query._id);
-		}
-		db.collection('stormtroppers').update(query, {$set: data}, callback);
+		schema.update(query, {$set: data}).exec(callback);
+		// db.collection('stormtroppers').update(query, {$set: data}, callback);
 	},
 	delete: function(query, callback) {
-		if(query._id) {
-			query._id = db.ObjectId(query._id);
-		}
-
-		db.collection('stormtroppers').remove(query, callback);
+		schema.remove(query).exec(callback);
+		// db.collection('stormtroppers').remove(query, callback);
 	}
 };
 
