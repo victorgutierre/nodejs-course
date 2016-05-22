@@ -6,9 +6,12 @@ let app 		= express();
 let bodyParser = require('body-parser');
 let serveStatic = require('serve-static');
 let cors = require('cors');
+let compression = require('compression');
 
 app.use(bodyParser());
 
+
+app.use(compression());
 app.use(serveStatic('public/'));
 app.use(cors());
 
