@@ -6,7 +6,7 @@ let assert = require('assert');
 let debug = require('debug')('curso_nodejs:test:stormtroppers');
 
 describe('stormtropper crud', function(){
-	
+
 	it('GET /api/stormtroppers', function(done) {
 		request
 			.get('/api/stormtroppers')
@@ -30,18 +30,18 @@ describe('stormtropper crud', function(){
 		request
 			.post('/api/stormtroppers')
 			.send({'name':'ct-test', 'alias' : 'tester storm'})
-			.set({'Content-Type', 'application/x-www-form-urlencoded'})
+			.set({'Content-Type': 'application/x-www-form-urlencoded'})
 			.end(function(err, result) {
 				debug(result.body);
 				done();
 			});
 	});
 
-	it.only('PUT /api/stormtroppers/:id', function(done) {
+	it('PUT /api/stormtroppers/:id', function(done) {
 		request
 			.put('/api/stormtroppers/574099bd2902b4869ec96b85')
 			.send({ 'name': 'test PUT'})
-			.set({'Content-Type', 'application/x-www-form-urlencoded'})
+			.set({'Content-Type': 'application/x-www-form-urlencoded'})
 			.end(function(err, result) {
 				debug(result.body)
 				done();
@@ -49,7 +49,12 @@ describe('stormtropper crud', function(){
 	});
 
 
-	it('DELETE /api/stormtroppers/:id', function() {
-
+	it.only('DELETE /api/stormtroppers/:id', function(done) {
+		request
+			.delete('/api/stormtroppers/574099bd2902b4869ec96b85')
+			.end(function(err, result) {
+				debug(err)
+				done();
+			});
 	});
 });
