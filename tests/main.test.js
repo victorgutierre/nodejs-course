@@ -1,19 +1,35 @@
 'use strict';
 
+let app = require('../app');
+let request = require('supertest')(app);
+let debug = require('debug')('curso_nodejs:test:main');
+let assert = require('assert');
+
 describe('main routes', function(){
 	
-	// .skip or xit instead of it to skip a test
-	it.skip('GET / should respond 200',function() {
-		throw new Error('erro'); // - Simulando erro
+	it('GET / should respond 200',function(done) {
+		request
+			.get('/')
+			.end(function(err, result) {
+				assert.equal(result.status, 200);
+				assert.deepEqual(result.body, {});
+				assert.ok(/<title>Document<\/title>/.test(result.text));
+
+				debug(err, result.body, result.text, result.status, result.headers);
+				done();
+			});
+
+		debug('após');
 	});
 
 	it('GET /not-found should respond 404',function() {
 
 	});
 
-	// .only to test just one guy and focus on him
-	it.only('GET /api should respond blah',function() {
+	it('GET /api should respond blah',function() {
 
 	});
+
+
 
 });

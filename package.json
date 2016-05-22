@@ -5,7 +5,8 @@
   "main": "test.js",
   "scripts": {
     "start": "nodemon bin/www",
-    "test": "jshint ."
+    "test": "jshint .",
+    "test-api" : "./node_modules/mocha/bin/_mocha tests/* -R nyan"
   },
   "repository": {
     "type": "git",
