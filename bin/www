@@ -1,6 +1,6 @@
 'use strict';
 
-let debug = require('debug')('curso_node:bin:www');
+let debug = require('debug')('curso_nodejs:bin:www');
 let app = require('../app')
 
 // Sobe o servidor

@@ -115,3 +115,6 @@ not use with zshell - search how to do it with zshell
 Search for TJ Github
 
 _______________________________________________________________
+
+Use MOCHA and SuperTest to write tests
+and istanbul to know the percentage of test
