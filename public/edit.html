@@ -5,18 +5,47 @@
 	<title>Document</title>
 </head>
 <body>
+
+	<form action="">
+		<input type="hidden" name="_id" id="_id">
+		<input type="text" name="name" id="name">
+		<input type="text" name="alias" id="alias">
+		<input type="text" name="patent" id="patent">
+		<input type="text" name="divisions[]" id="divisions">
+
+		<input type="button" value="salvar" id="save">
+	</form>
+
+
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
+
+		$('#save').on('click', function() {
+			$.ajax({
+				type: 'PUT',
+				url: '/api/stormtroppers/' + $('#_id').val(),
+				data: $('#form').serialize()
+			})
+			.then(function(result) {
+				console.log('result', result);
+				alert('Stormtrooper salvo com sucesso!');
+			}) 
+		});
+
 		var search = location.search;
 		var _id = search.match(/id=([^&]+)/)[1];
 		console.log('id', _id);
 
 	 	$.ajax({
-	 		url: '/api/stormtropper/' + _id,
 	 		type: 'GET',
+	 		url: '/api/stormtroppers/' + _id
 	 	})
 	 	.then(function(data) {
-
+	 		$('#_id').val(data._id);
+	 		$('#name').val(data.name);
+	 		$('#alias').val(data.alias);
+	 		$('#patent').val(data.patent);
+	 		$('#divisions').val(data.division || [])[0];
 	 	});
 	 	
 	</script>

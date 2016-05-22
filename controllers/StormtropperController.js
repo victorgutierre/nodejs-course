@@ -2,6 +2,7 @@
 
 let bluebird = require('bluebird');
 let StormtropperModel = bluebird.promisifyAll(require('../models/StormtropperModel'));
+let debug = require('debug')('curso_node:db:StormtropperController');
 
 function _handleNotFound(data) {
 	let isNotFound = Array.isArray(data) ? !data.length : !data;
@@ -55,6 +56,7 @@ let StormtropperController = {
 		};
 		let body = request.body;
 
+		debug(query, body);
 		StormtropperModel.update(query, body, function(err, data) {
 			if(err) {
 				return next(err);
