@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon bin/www",
     "test": "jshint .",
-    "test-api" : "./node_modules/mocha/bin/_mocha tests/* -R nyan"
+    "test-api": "./node_modules/mocha/bin/_mocha tests/* -R nyan"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "mongojs": "^2.4.0"
   },
   "devDependencies": {
+    "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "supertest": "^1.2.0"
   }
