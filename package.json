@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon bin/www",
     "test": "jshint .",
-    "test-api": "./node_modules/istanbul/lib/cli.js ./node_modules/mocha/bin/_mocha tests/* -R nyan"
+    "test-api": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha tests/*"
   },
   "repository": {
     "type": "git",
