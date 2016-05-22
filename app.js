@@ -5,10 +5,12 @@ let express = require('express');
 let app 		= express();
 let bodyParser = require('body-parser');
 let serveStatic = require('serve-static');
+let cors = require('cors');
 
 app.use(bodyParser());
 
 app.use(serveStatic('public/'));
+app.use(cors());
 
 app.use('/', require('./routes'));
 app.use(function(request, response, next) {
