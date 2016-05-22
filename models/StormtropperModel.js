@@ -1,16 +1,16 @@
 'use strict';
 
-let db = require('../db/mongo');
+let db = require('../db/mongoose');
+let schema = require('../schemas/StormtropperSchema');
 
 let StormtropperModel = {
 	query: function(query, callback) {
-		db.collection('stormtroppers').find(query, callback);
+		schema.find(query).exec(callback);
+		// db.collection('stormtroppers').find(query, callback);
 	},
 	findOne: function(query, callback) {
-		if(query._id) {
-			query._id = db.ObjectId(query._id);
-		}
-		db.collection('stormtroppers').findOne(query, callback);
+		schema.findOne(query).exec(callback);
+		// db.collection('stormtroppers').findOne(query, callback);
 	},
 	create: function(data, callback) {
 		db.collection('stormtroppers').insert(data, callback);
