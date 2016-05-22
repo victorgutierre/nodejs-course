@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		var search = location.search;
+		var _id = search.match(/id=([^&]+)/)[1];
+		console.log('id', _id);
+
+	 	$.ajax({
+	 		url: '/api/stormtropper/' + _id,
+	 		type: 'GET',
+	 	})
+	 	.then(function(data) {
+
+	 	});
+	 	
+	</script>
+</body>
+</html>

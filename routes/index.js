@@ -7,7 +7,7 @@ let pkg = require('../package.json');
 
 // Chama os objetos do MainController
 router.use('/', MainController.middleware);
-router.get('/', MainController.home);
+// router.get('/', MainController.home);
 router.post('/', MainController.create);
 
 router.get('/health', function(request, response) {

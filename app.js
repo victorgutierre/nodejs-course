@@ -4,9 +4,11 @@
 let express = require('express');
 let app 		= express();
 let bodyParser = require('body-parser');
-
+let serveStatic = require('serve-static');
 
 app.use(bodyParser());
+
+app.use(serveStatic('public/'));
 
 app.use('/', require('./routes'));
 app.use(function(request, response, next) {

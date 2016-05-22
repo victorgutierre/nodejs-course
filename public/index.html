@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Blah</h1>
+	
+	<table id="storm-table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Alias</th>
+				<th>Divisions</th>
+				<th>Patent</th>
+				<th>Edit</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		var $stormTable = $('#storm-table tbody');
+		$.ajax({
+			url: '/api/stormtroppers',
+			type: 'GET',
+		})
+		.then(function(data) {
+			var tmp = data.map(function(item) {
+				return '<tr>' +
+					'<td>'+ item.name +'</td>' +
+					'<td>'+ item.alias +'</td>' +
+					'<td>'+ item.division +'</td>' +
+					'<td>'+ item.patent +'</td>' +
+					'<td><a href="edit.html?_id='+item._id+'">'+item._id+'</a></td>' +
+				'</tr>'
+			});
+
+			$stormTable.html(tmp.join(''));
+		})
+	</script>
+</body>
+</html>
