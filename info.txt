@@ -109,4 +109,6 @@ remover pacote npm: npm rm -g jshint
 export do debug
 export DEBUG=curso_node*
 
+not use with zshell - search how to do it with zshell
+
 _______________________________________________________________
