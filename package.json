@@ -4,9 +4,9 @@
   "description": "NodeJS Course stuff",
   "main": "test.js",
   "scripts": {
-    "start": "nodemon bin/www",
+    "start": "export NODE_ENV=dev && nodemon bin/www",
     "test": "jshint .",
-    "test-api": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha tests/*"
+    "test-api": "export NODE_ENV=test && ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha tests/*"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "dependencies": {
     "bluebird": "^3.4.0",
     "body-parser": "^1.15.1",
+    "config": "^1.20.3",
     "debug": "^2.2.0",
     "express": "^4.13.4",
     "mongojs": "^2.4.0"

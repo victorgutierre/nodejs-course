@@ -1,8 +1,16 @@
 'use strict';
 
 let mongojs = require('mongojs');
+let config  = require('config');
+let debug = require('debug')('curso_node:db:mongo');
 
-let db = mongojs('localhost:27017/curso-nodejs');
+let host = config.get('mongo.host');
+let port = config.get('mongo.port');
+let database = config.get('mongo.database');
+
+let connection = `${host}:${port}/${database}`;  
+debug('connection', connection);
+let db = mongojs(connection);
 
 db.on('connect', function() {
 	console.log('Conectado ao banco');
