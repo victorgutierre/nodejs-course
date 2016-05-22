@@ -2,8 +2,21 @@
 
 let debug = require('debug')('curso_nodejs:bin:www');
 let app = require('../app')
+let cluster = require('cluster');
+let numCPUs = require('os').cpus().length;
 
-// Sobe o servidor
-app.listen(3000, function(){
-	debug('server is up');
-});
+
+if(cluster.isMaster) {
+	for(let i = 0; i < numCPUs; i++) {
+		cluster.fork();
+	}
+	cluster.on('exit', function (worker, code, signal) {
+		console.log(`worker ${worker.process.pid} died`)
+	});
+} else {
+	// Sobe o servidor
+	app.listen(3000, function(){
+		debug('server is up');
+	});	
+}
+
